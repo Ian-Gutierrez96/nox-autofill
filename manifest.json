@@ -1,0 +1,466 @@
+{
+  "manifest_version": 3,
+  "name": "NOX",
+  "version": "1.0.0",
+
+  "action": {
+    "default_icon": {
+      "16": "./images/nox.png",
+      "24": "./images/nox.png",
+      "32": "./images/nox.png"
+    },
+    "default_title": "NOX"
+  },
+  "description": "Bespoke autofill tool built to be the ultimate checkout companion.",
+  "icons": {
+    "16": "./images/nox.png",
+    "32": "./images/nox.png",
+    "48": "./images/nox.png",
+    "128": "./images/nox.png"
+  },
+
+  "author": "NOX Automation LLC",
+  "background": {
+    "service_worker": "./background.js"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/adidas.js"
+      ],
+      "matches": ["https://www.adidas.com/us/*"]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/adyenGateway.js"
+      ],
+      "matches": [
+        "https://checkoutshopper-live.adyen.com/checkoutshopper/*",
+        "https://checkoutshopper-live-us.adyen.com/checkoutshopper/*"
+      ]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/aioAutofill.js"
+      ],
+      "matches": ["<all_urls>"],
+      "exclude_matches": [
+        "https://www.adidas.com/us/*",
+        "https://checkoutshopper-live.adyen.com/checkoutshopper/*",
+        "https://checkoutshopper-live-us.adyen.com/checkoutshopper/*",
+        "https://www.amazon.com/*",
+        "https://apx-security.amazon.com/*",
+        "https://www.bestbuy.com/*",
+        "https://payments.bigcommerce.com/*",
+        "https://assets.braintreegateway.com/*",
+        "https://www.google.com/recaptcha/api2/anchor*",
+        "https://www.crocs.com/*",
+        "https://flex.cybersource.com/cybersource/assets/microform/*",
+        "https://www.dickssportinggoods.com/*",
+        "https://discord.com/oauth2/authorize*",
+        "https://www.ebay.com/*",
+        "https://cart.ebay.com/*",
+        "https://cart.payments.ebay.com/*",
+        "https://pay.ebay.com/*",
+        "https://www.evga.com/*",
+        "https://secure.evga.com/*",
+        "https://fps-farfetch-payment-gateway.farfetch.net/*",
+        "https://www.finishline.com/*",
+        "https://www.champssports.com/*",
+        "https://www.eastbay.com/*",
+        "https://www.footlocker.com/*",
+        "https://www.kidsfootlocker.com/*",
+        "https://www.gamestop.com/*",
+        "https://www.hibbett.com/*",
+        "https://identity.walmart.com/*",
+        "https://www.jdsports.com/*",
+        "https://www.lego.com/en-us/*",
+        "https://www.lids.com/*",
+        "https://www.newbalance.com/*",
+        "https://www.nike.com/*",
+        "https://store.mellanox.com/*",
+        "https://www.off---white.com/*",
+        "https://oppwa.com/*",
+        "https://eu-prod.oppwa.com/*",
+        "https://paymentcc.nike.com/services/*",
+        "https://paymentsheet.wdprapps.disney.com/*",
+        "https://paymentsheet-ent.wdprapps.disney.com/*",
+        "https://www.paypal.com/checkoutnow*",
+        "https://www.pokemoncenter.com/*",
+        "https://www.shopdisney.com/*",
+        "https://*/*/checkouts/*",
+        "https://checkout.shopifycs.com/*",
+        "https://*/checkouts/c/*",
+        "https://www.snipesusa.com/*",
+        "https://checkout.stripe.com/pay/*",
+        "https://checkout.stripe.com/c/pay/*",
+        "https://js.stripe.com/v3/*",
+        "https://us.supreme.com/*",
+        "https://www.target.com/*",
+        "https://wallet.walmart.com/*",
+        "https://www.walmart.com/*",
+        "https://www.yeezysupply.com/*"
+      ]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/amazon.js"
+      ],
+      "matches": ["https://www.amazon.com/*"]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/apxSecurity.js"
+      ],
+      "matches": ["https://apx-security.amazon.com/*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/bestBuy.js"
+      ],
+      "matches": ["https://www.bestbuy.com/*"]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/bigCommerce.js"
+      ],
+      "matches": ["https://payments.bigcommerce.com/*"]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/brainTreeGateway.js"
+      ],
+      "matches": ["https://assets.braintreegateway.com/*"]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/captchaAutoclick.js"
+      ],
+      "matches": ["https://www.google.com/recaptcha/api2/anchor*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/crocs.js"
+      ],
+      "matches": ["https://www.crocs.com/*"]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/cybersourceGateway.js"
+      ],
+      "matches": ["https://flex.cybersource.com/cybersource/assets/microform/*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/dicksSportingGoods.js"
+      ],
+      "matches": ["https://www.dickssportinggoods.com/*"]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/discordOAuthClicker.js"
+      ],
+      "matches": ["https://discord.com/oauth2/authorize*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/ebay.js"
+      ],
+      "matches": [
+        "https://www.ebay.com/*",
+        "https://cart.ebay.com/*",
+        "https://cart.payments.ebay.com/*",
+        "https://pay.ebay.com/*"
+      ]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/evga.js"
+      ],
+      "matches": ["https://www.evga.com/*", "https://secure.evga.com/*"]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/farfetchGateway.js"
+      ],
+      "matches": ["https://fps-farfetch-payment-gateway.farfetch.net/*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/finishline.js"
+      ],
+      "matches": ["https://www.finishline.com/*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/footsites.js"
+      ],
+      "matches": [
+        "https://www.champssports.com/*",
+        "https://www.eastbay.com/*",
+        "https://www.footlocker.com/*",
+        "https://www.kidsfootlocker.com/*"
+      ]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/gameStop.js"
+      ],
+      "matches": ["https://www.gamestop.com/*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/hibbett.js"
+      ],
+      "matches": ["https://www.hibbett.com/*"]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/identityWalmart.js"
+      ],
+      "matches": ["https://identity.walmart.com/*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/jdSports.js"
+      ],
+      "matches": ["https://www.jdsports.com/*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/lego.js"
+      ],
+      "matches": ["https://www.lego.com/en-us/*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/lids.js"
+      ],
+      "matches": ["https://www.lids.com/*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/newBalance.js"
+      ],
+      "matches": ["https://www.newbalance.com/*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/nike.js"
+      ],
+      "matches": ["https://www.nike.com/*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/nvidia.js"
+      ],
+      "matches": ["https://store.mellanox.com/*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/offWhite.js"
+      ],
+      "matches": ["https://www.off---white.com/*"]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/oppwaGateway.js"
+      ],
+      "matches": ["https://oppwa.com/*", "https://eu-prod.oppwa.com/*"]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/paymentccGateway.js"
+      ],
+      "matches": ["https://paymentcc.nike.com/services/*"]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/paymentsheet.js"
+      ],
+      "matches": [
+        "https://paymentsheet.wdprapps.disney.com/*",
+        "https://paymentsheet-ent.wdprapps.disney.com/*"
+      ]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/paypalPayNow.js"
+      ],
+      "matches": ["https://www.paypal.com/checkoutnow*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/pokemonCenter.js"
+      ],
+      "matches": ["https://www.pokemoncenter.com/*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/shopDisney.js"
+      ],
+      "matches": ["https://www.shopdisney.com/*"]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/shopify.js"
+      ],
+      "matches": ["https://*/*/checkouts/*"]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/shopifyPaymentGateway.js"
+      ],
+      "matches": ["https://checkout.shopifycs.com/*"]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/shopifySPA.js"
+      ],
+      "matches": ["https://*/checkouts/c/*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/snipes.js"
+      ],
+      "matches": ["https://www.snipesusa.com/*"]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/stripeCheckout.js"
+      ],
+      "matches": [
+        "https://checkout.stripe.com/pay/*",
+        "https://checkout.stripe.com/c/pay/*"
+      ]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/stripeElements.js"
+      ],
+      "matches": ["https://js.stripe.com/v3/*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/supreme.js"
+      ],
+      "matches": ["https://us.supreme.com/*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/target.js"
+      ],
+      "matches": ["https://www.target.com/*"]
+    },
+    {
+      "all_frames": true,
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/walletWalmart.js"
+      ],
+      "matches": ["https://wallet.walmart.com/*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/walmart.js"
+      ],
+      "matches": ["https://www.walmart.com/*"]
+    },
+    {
+      "js": [
+        "./js/contentScripts/checkoutAPI.js",
+        "./js/contentScripts/nationality.js",
+        "./js/contentScripts/yeezySupply.js"
+      ],
+      "matches": ["https://www.yeezysupply.com/*"]
+    }
+  ],
+  "permissions": ["activeTab", "notifications", "proxy", "storage", "tabs"],
+  "host_permissions": ["<all_urls>"]
+}
