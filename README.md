@@ -4,11 +4,11 @@ Automate the e-commerce checkout process for 30+ stores and retailers. NOX is de
 
 ## Screenshots
 
-![Home Screen](https://github.com/NOX-Automation/nox-autofill/master/images/home-page.png)
+![Home Screen](https://github.com/NOX-Automation/nox-autofill/main/images/home-page.png)
 
-![Scripts Page](https://github.com/NOX-Automation/nox-autofill/master/images/scripts-page.png)
+![Scripts Page](https://github.com/NOX-Automation/nox-autofill/main/images/scripts-page.png)
 
-![Profile Page](https://github.com/NOX-Automation/nox-autofill/master/images/profile-page.png)
+![Profile Page](https://github.com/NOX-Automation/nox-autofill/main/images/profile-page.png)
 
 ## Features
 
